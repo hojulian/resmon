@@ -2,10 +2,10 @@
     "name": "resourcemonitor",
     "displayName": "Resource Monitor",
     "description": "Displays current CPU stats, memory/disk consumption, and battery percentage remaining.",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "publisher": "mutantdino",
     "engines": {
-        "vscode": "^1.25.0"
+        "vscode": "^1.90.0"
     },
     "categories": [
         "Other"
@@ -16,7 +16,7 @@
         "theme": "dark"
     },
     "activationEvents": [
-        "*"
+        "onStartupFinished"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -125,18 +125,16 @@
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
         "watch": "tsc -watch -p ./"
     },
-    "dependencies": {
-        "systeminformation": "^4.27.11"
-    },
     "devDependencies": {
-        "systeminformation": "^4.27.11",
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.43",
-        "tslint": "^5.8.0",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
+        "@types/mocha": "^2.2.48",
+        "@types/node": "^7.10.14",
+        "@types/vscode": "^1.90.0",
+        "tslint": "^5.20.1",
+        "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "systeminformation": "^5.22.11"
     }
 }

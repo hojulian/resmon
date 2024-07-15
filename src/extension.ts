@@ -36,7 +36,7 @@ abstract class Resource {
         return null;
     }
 
-    protected async abstract getDisplay(): Promise<string>;
+    protected abstract getDisplay(): Promise<string>;
 
     protected async isShown(): Promise<boolean> {
         return Promise.resolve(this._config.get(`show.${this._configKey}`, false));
@@ -63,7 +63,7 @@ class CpuUsage extends Resource {
 
     async getDisplay(): Promise<string> {
         let currentLoad = await si.currentLoad();
-        return `$(pulse) ${(100 - currentLoad.currentload_idle).toFixed(this.getPrecision())}%`;
+        return `$(pulse) ${(100 - currentLoad.currentLoadIdle).toFixed(this.getPrecision())}%`;
     }
 
 }
@@ -93,7 +93,7 @@ class CpuFreq extends Resource {
     }
 
     async getDisplay(): Promise<string> {
-        let cpuCurrentSpeed = await si.cpuCurrentspeed();
+        let cpuCurrentSpeed = await si.cpuCurrentSpeed(null);
         // systeminformation returns frequency in terms of GHz by default
         let speedHz = parseFloat(cpuCurrentSpeed.avg) * Units.G;
         let formattedWithUnits = this.getFormattedWithUnits(speedHz);

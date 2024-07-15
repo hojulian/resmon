@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.8]
+- Update `systeminformation` to v5.22.11 to support Apple Silicon M1/M2/M3.
+- Update Node versions, JS dependency versions, and GH actions.
+
 ## [1.0.7]
 - Changed underlying CPU frequency API, added hiding battery/CPU temp information if the device lacks a battery/doesn't support CPU temp sensing, added some clarifications about CPU frequency behavior on Windows.
 
